@@ -1,7 +1,7 @@
 <div class="main_head">
   <div class="left-header">
     <div class="group_name">
-      hogefuga
+      <%= @room.name%>
     </div>
   </div>
   <div class="right-header">
@@ -12,40 +12,11 @@
 </div>
 
 <div class="main_contents">
-  <div class="upper_chat">
-    <div class="chat_info">
-      <div class="chat_user_name">
-        田中
-      </div>
-      <div class="chat_date">
-        2020/3/31(Wed) 12:43:30
-      </div>
-    </div>
-    <div class="lower_chat">
-      <div class="comment">
-        こんにちは！
-      </div>
-    </div>
-  </div>  
-  <div class="upper_chat">
-    <div class="chat_info">
-      <div class="chat_user_name">
-        Tom
-      </div>
-      <div class="chat_date">
-        2020/3/31(Wed) 12:43:30
-      </div>
-    </div>
-    <div class="lower_chat">
-      <div class="comment">
-        hello!
-      </div>
-    </div>
-  </div>  
+  <%= render partial:'message', collection: @messages %>
 </div>
 
 
-<%= form_with model: [@room, @message] , class: 'main_foot', local:true do |f|%>
+<%= form_with model: [@room, @message] , class: 'main_form', local:true do |f|%>
   <div class="form">
     <%= f.text_field :content, class:'text' ,placeholder:'type a message'%>
     <label class="form_image">
@@ -53,5 +24,5 @@
       <%= f.file_field :image, class: 'hidden' %>
     </label> 
   </div>
-  <%= f.submit '送信' ,class:'send_buttom'%>
-<% end %>
+  <%= f.submit '送信',class:'send_buttom'%>
+<%end %>
