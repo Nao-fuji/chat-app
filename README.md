@@ -34,8 +34,9 @@
 | room     | references | null:false, foreign_key: true |
 
 ### Association
-- has_many :room
-- has_many :user
+
+- belongs_to :room
+- belongs_to :user
 
 ## messages テーブル
 
@@ -46,5 +47,6 @@
 | room     | references | null:false, foreign_key: true |
 
 ### Association
-- has_many :room
-- has_many :user
+
+- belongs_to :room
+- belongs_to :user
